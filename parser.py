@@ -14,7 +14,7 @@ start : /\d+/
 
 
 class CalcTransformer(InlineTransformer):
-    from operator import add, sub, mul, truediv as div  # ... e mais! 
+    from operator import add, sub, mul, truediv as div, pow as exp, gt, ge, lt, le, ne, eq
 
     def __init__(self):
         super().__init__()
