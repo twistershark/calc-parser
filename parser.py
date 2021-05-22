@@ -20,3 +20,10 @@ class CalcTransformer(InlineTransformer):
         super().__init__()
         self.variables = {k: v for k, v in vars(math).items() if not k.startswith("_")}
         self.variables.update(max=max, min=min, abs=abs)
+        self.vars = {}
+
+    def number(self, token):
+        try:
+            return int(token)
+        except ValueError:
+            return float(token)
