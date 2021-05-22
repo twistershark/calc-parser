@@ -53,3 +53,8 @@ class CalcTransformer(InlineTransformer):
 
     def start(self, *args):
         return args[-1]
+
+    def assign(self, name, value):
+        self.vars[name] = value
+        print("###", self.vars[name])
+        return self.vars[name]
