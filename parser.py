@@ -27,3 +27,15 @@ class CalcTransformer(InlineTransformer):
             return int(token)
         except ValueError:
             return float(token)
+
+    def func(self, name, *args):
+        name = str(name)
+        fn = self.variables[name.split('-')[-1]]
+        try:
+            if name[0] == '-':
+                return -fn(*args)
+            else:
+                fn = self.variables[name]
+                return fn(*args)
+        except:
+            return "Invalid!"
