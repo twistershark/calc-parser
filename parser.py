@@ -50,3 +50,6 @@ class CalcTransformer(InlineTransformer):
                 return self.vars[token]
         except KeyError:
             return "Invalid: " + str(token)
+
+    def start(self, *args):
+        return args[-1]
